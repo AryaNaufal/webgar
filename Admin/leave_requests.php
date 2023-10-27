@@ -80,7 +80,6 @@ if ($admin_email != "admin@admin.com") {
           </thead>
           <tbody>
             <?php
-
             if ($result->num_rows > 0) {
 
               // output data of each row
@@ -93,7 +92,7 @@ if ($admin_email != "admin@admin.com") {
                   <td><?php echo $row["message"] ?></td>
                   <td><?php echo $row["date_time"] ?></td>
                   <td>
-                    <form action="" method="post">
+                    <form action="" method="POST">
                       <input type="text" name="email" value="<?php echo $row["email"] ?>" hidden>
                       <input type="text" name="date" value="<?php echo $row["date_time"] ?>" hidden>
                       <input type="text" name="fname" value="<?php echo $row["fname"] ?>" hidden>
@@ -102,7 +101,7 @@ if ($admin_email != "admin@admin.com") {
                     </form>
 
                   <td>
-                    <form action="" method="post">
+                    <form action="" method="POST">
                       <input type="text" name="email" value="<?php echo $row["email"] ?>" hidden>
                       <input type="text" name="date" value="<?php echo $row["date_time"] ?>" hidden>
                       <input type="text" name="fname" value="<?php echo $row["fname"] ?>" hidden>
@@ -111,9 +110,6 @@ if ($admin_email != "admin@admin.com") {
                     </form>
                   <td>
                     <!-- Display the image -->
-                    <?php
-
-                    ?>
                     <img src="../User/<?= $row['image_path']; ?>" alt="Report Image" width="50">
                   </td>
                 </tr>

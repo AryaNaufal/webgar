@@ -1,0 +1,8 @@
+database/
+Assets/
+Admin/image
+User/User/
+
+# Log files
+*.log
+!example.log
