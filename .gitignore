@@ -1,8 +1,4 @@
 database/
 Assets/
-Admin/image
+Admin/image/
 User/User/
-
-# Log files
-*.log
-!example.log

@@ -1,7 +1,7 @@
 <?php
 include('header.php');
 include('../server.php');
-session_start();
+// session_start();
 $admin_email = $_SESSION["email"];
 if ($admin_email != "admin@admin.com") {
 ?>

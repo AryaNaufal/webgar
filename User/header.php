@@ -1,3 +1,9 @@
+<?php
+include '../server.php';
+session_start();
+$sql = mysqli_query($conn, "SELECT * FROM users WHERE email='$_SESSION[email]'");
+$row = mysqli_fetch_array($sql);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -70,7 +76,7 @@
 
 <body>
   <div class="sidebar">
-    <a href="user_profile.php" style="color: white;"><i class="fas fa-user-circle" style="font-size: 40px;"></i> User <i class="fa fa-circle" style="color: #15f716 ; font-size: 11px;"></i></a>
+    <a href="user_profile.php" style="color: white;"><i class="fas fa-user-circle" style="font-size: 40px;"></i><?= $row['fname'] ?><i class="fa fa-circle" style="color: #15f716 ; font-size: 11px;"></i></a>
     <a href="user_Dashboard.php"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a>
     <a href="attendance.php"><i class="fas fa-clipboard-list"></i> Attendance</a>
     <a href="report.php"><i class="fas fa-poll"></i> Your Work</a>
