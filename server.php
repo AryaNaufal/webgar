@@ -284,8 +284,8 @@ if (isset($_POST["leave_req"])) {
     $imagePath = $targetFile;
 
     // Insert the data, including the image path, into the database
-    $sql = "INSERT INTO leave_requests (email, fname, lname, message, date_time, image_path) 
-                VALUES ('$email', '$fname', '$lname', '$message', '$date', '$imagePath')";
+    $sql = "INSERT INTO leave_requests (email, fname, lname, message, date_time, image_path, status) 
+                VALUES ('$email', '$fname', '$lname', '$message', '$date', '$imagePath', 'REJECT')";
 
     if (mysqli_query($conn, $sql)) {
     ?>

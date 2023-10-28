@@ -5,6 +5,7 @@ include('../server.php');
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -14,8 +15,7 @@ include('../server.php');
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
   <!-- <link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-  <link rel="stylesheet" 
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <title>Admin Dashboard</title>
 </head>
@@ -40,53 +40,58 @@ include('../server.php');
     color: #cbd3e8;
     display: block;
   }
+
   .sidebar button {
 
     margin-left: 12px;
   }
+
   .sidebar a:hover {
     color: #f1f1f1;
   }
 
   .main {
-    margin-left: 220px; /* Same as the width of the sidenav */
+    margin-left: 220px;
+    /* Same as the width of the sidenav */
     padding: 0px 10px;
   }
 
   @media screen and (max-height: 450px) {
-    .sidebar {padding-top: 15px;}
-    .sidebar a {font-size: 18px;}
+    .sidebar {
+      padding-top: 15px;
+    }
+
+    .sidebar a {
+      font-size: 18px;
+    }
   }
-
 </style>
+
 <body>
- <div class="sidebar">
-  <a href="admin_dashboard.php" style="color: white;"><i class="fas fa-user-circle" style="font-size: 40px;"></i> ADMIN <i class="fa fa-circle" style="color: #15f716 ; font-size: 11px;"></i></a>
-  <a href="admin_Dashboard.php"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a>
-  <a href="user_view.php"><i class="fas fa-user-graduate"></i> Employee</a>
-  <a href="user_management.php"><i class="fas fa-users"></i> Employee Management</a>
-  <a href="leave_requests.php"><i class="fas fa-envelope-open"></i>Report Task</a>
-  <a href="messages.php"><i class="fas fa-sms"></i> Messages</a>
-  <br>
+  <div class="sidebar">
+    <a href="admin_dashboard.php" style="color: white;"><i class="fas fa-user-circle" style="font-size: 40px;"></i> ADMIN <i class="fa fa-circle" style="color: #15f716 ; font-size: 11px;"></i></a>
+    <a href="admin_Dashboard.php"><i class="fa fa-fw fa-tachometer"></i> Dashboard</a>
+    <a href="user_view.php"><i class="fas fa-user-graduate"></i> Employee</a>
+    <a href="user_management.php"><i class="fas fa-users"></i> Employee Management</a>
+    <a href="leave_requests.php"><i class="fas fa-envelope-open"></i>Report Task</a>
+    <a href="messages.php"><i class="fas fa-sms"></i> Messages</a>
+    <br>
+  </div>
+  <div class="main">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand">Welcome to Online Attendence System</a>
+      <form method="post">
+        <button class="btn btn-outline-danger my-2 my-sm-0" name="logout" type="submit">Logout</button>
+      </form>
+    </nav>
 
-  <form method="post">
-   <button class="btn btn-outline-danger my-2 my-sm-0" name="logout" type="submit"><i class="fas fa-sign-out-alt"></i> Logout</button>
- </form>
-</div>
-<div class="main">
-  <nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand">Welcome to Online Attendence System</a>
-    <form method="post">
-      <button class="btn btn-outline-danger my-2 my-sm-0" name="logout" type="submit">Logout</button>
-    </form>
-  </nav>
+  </div>
 
-</div>
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
+
 </html>

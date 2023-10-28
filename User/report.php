@@ -61,9 +61,8 @@ if ($admin_email != "admin@admin.com") {
                     <?= $row['status'] ?>
                   </td>
                   <td>
-                    <a href="leave_request.php?id=<?= $row['id'] ?>" class="btn btn-primary">Update</a>
+                    <a href="leave_request.php" class="btn btn-primary">Update</a>
                   </td>
-
                 </tr>
             <?php
               }
