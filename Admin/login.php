@@ -199,6 +199,7 @@ body, html {
                     </label>
                 </div>
                 <button class="btn btn-lg btn-primary btn-block btn-signin" name="admin_login" type="submit">Login</button>
+                <a href="../Login.php" class="btn btn-danger btn-block">Back</a>
             </form><!-- /form -->
         </div>
     </div><!-- /container -->

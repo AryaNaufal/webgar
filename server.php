@@ -26,9 +26,9 @@ if (isset($_POST["add_user"])) {
   $folder = "image/" . $filename;
   $sql1 = mysqli_query($conn, "SELECT * FROM users where email='$email'");
   if (mysqli_num_rows($sql1) > 0) {
-?> <script type="text/javascript">
-      alert("User Already Exist")
-    </script>
+
+    echo "<script>alert('User Already Exist')</script>"
+?>
     <?php
 
   } else {
@@ -191,11 +191,13 @@ if (isset($_POST["admin_login"])) {
 }
 //admin logout
 if (isset($_POST["logout"])) {
-  header("Location: logout.php");
+  session_destroy();
+  header("Location: login.php");
 }
 // user logout
 if (isset($_POST["u_logout"])) {
-  header("Location:../logout.php");
+  session_destroy();
+  header("Location: ../Login.php");
 }
 // when student mark attendance as present
 
