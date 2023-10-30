@@ -37,30 +37,44 @@ if ($admin_email != "admin@admin.com") {
 
     if (isset($_POST['approve'])) {
       // Handle the 'APPROVE' button click
+      $id = $_POST['id'];
       $email = $_POST['email'];
       $date = $_POST['date'];
       $fname = $_POST['fname'];
       $lname = $_POST['lname'];
 
       // Execute SQL query to update the status to 'APPROVE' in the database
-      $updateQuery = "UPDATE leave_requests SET status = 'APPROVE' WHERE email = '$email' AND date_time = '$date'";
+      $updateQuery = "UPDATE leave_requests SET status = 'APPROVE' WHERE id = '$id' AND email = '$email'";
       $conn->query($updateQuery);
 
       // Store the status in a session variable
       $_SESSION['approval_status'] = 'APPROVE';
-    } elseif (isset($_POST['reject'])) {
+    } else if (isset($_POST['reject'])) {
       // Handle the 'REJECT' button click
+      $id = $_POST['id'];
       $email = $_POST['email'];
       $date = $_POST['date'];
       $fname = $_POST['fname'];
       $lname = $_POST['lname'];
 
       // Execute SQL query to update the status to 'REJECT' in the database
-      $updateQuery = "UPDATE leave_requests SET status = 'REJECT' WHERE email = '$email' AND date_time = '$date'";
+      $updateQuery = "UPDATE leave_requests SET status = 'REJECT' WHERE id = '$id' AND email = '$email'";
       $conn->query($updateQuery);
 
       // Store the status in a session variable
       $_SESSION['approval_status'] = 'REJECT';
+    } else if (isset($_POST['delete'])) {
+      // Handle the 'REJECT' button click
+      $id = $_POST['id'];
+      $email = $_POST['email'];
+      $date = $_POST['date'];
+      $fname = $_POST['fname'];
+      $lname = $_POST['lname'];
+
+      // Execute SQL query to update the status to 'REJECT' in the database
+      $updateQuery = "DELETE FROM leave_requests WHERE id = '$id'";
+      $conn->query($updateQuery);
+      header("location: leave_requests.php");
     }
     ?>
 
@@ -75,6 +89,7 @@ if ($admin_email != "admin@admin.com") {
               <th width="15%;">Approve</th>
               <th width="15%;">Reject</th>
               <th>PIC</th>
+              <th>Delete</th>
 
             </tr>
           </thead>
@@ -93,6 +108,7 @@ if ($admin_email != "admin@admin.com") {
                   <td><?php echo $row["date_time"] ?></td>
                   <td>
                     <form action="" method="POST">
+                      <input type="text" name="id" value="<?php echo $row["id"] ?>" hidden>
                       <input type="text" name="email" value="<?php echo $row["email"] ?>" hidden>
                       <input type="text" name="date" value="<?php echo $row["date_time"] ?>" hidden>
                       <input type="text" name="fname" value="<?php echo $row["fname"] ?>" hidden>
@@ -102,6 +118,7 @@ if ($admin_email != "admin@admin.com") {
 
                   <td>
                     <form action="" method="POST">
+                      <input type="text" name="id" value="<?php echo $row["id"] ?>" hidden>
                       <input type="text" name="email" value="<?php echo $row["email"] ?>" hidden>
                       <input type="text" name="date" value="<?php echo $row["date_time"] ?>" hidden>
                       <input type="text" name="fname" value="<?php echo $row["fname"] ?>" hidden>
@@ -109,8 +126,17 @@ if ($admin_email != "admin@admin.com") {
                       <button type="submit" name="reject" value="REJECT" class="btn btn-primary">REJECT</button>
                     </form>
                   <td>
-                    <!-- Display the image -->
                     <img src="../User/<?= $row['image_path']; ?>" alt="Report Image" width="50">
+                  </td>
+                  <td>
+                    <form action="" method="POST">
+                      <input type="text" name="id" value="<?php echo $row["id"] ?>" hidden>
+                      <input type="text" name="email" value="<?php echo $row["email"] ?>" hidden>
+                      <input type="text" name="date" value="<?php echo $row["date_time"] ?>" hidden>
+                      <input type="text" name="fname" value="<?php echo $row["fname"] ?>" hidden>
+                      <input type="text" name="lname" value="<?php echo $row["lname"] ?>" hidden>
+                      <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                    </form>
                   </td>
                 </tr>
             <?php

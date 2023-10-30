@@ -183,8 +183,8 @@ if (isset($_POST["admin_login"])) {
   $password = mysqli_real_escape_string($conn, $_POST["password"]);
   $email1 = "admin@admin.com";
   $password1 = "admin";
-  if ($email1 == $email && $password == $password1) {
-    header("Location: admin_dashboard.php");
+  if ($email == $email1 && $password == $password1) {
+      header("Location: admin_dashboard.php");
   } else {
     echo '<script>alert("Incorrect ID,Password combination")</script>';
   }
