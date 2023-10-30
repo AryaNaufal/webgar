@@ -1,7 +1,7 @@
 <?php
 include('header.php');
 include('../server.php');
-session_start();
+
 $admin_email = $_SESSION["admin_email"];
 if ($admin_email != "admin@admin.com") {
   header("Location: login.php");

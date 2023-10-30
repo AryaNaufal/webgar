@@ -5,10 +5,6 @@ include('../server.php');
 $email = $_SESSION["email"];
 $sql = "SELECT * FROM users WHERE email='$email'";
 $result = $conn->query($sql);
-
-$origin = date_create($row["dob"]);
-$target = date_create(date("Y-m-d"));
-$interval = date_diff($origin, $target);
 ?>
 <!DOCTYPE html>
 <html>
@@ -80,6 +76,9 @@ $interval = date_diff($origin, $target);
         // output data of each row
 
         while ($row = $result->fetch_assoc()) {
+          $origin = date_create($row["dob"]);
+          $target = date_create(date("Y-m-d"));
+          $interval = date_diff($origin, $target);
       ?>
 
           <img src="../Admin/image/<?php echo $row["dp"]; ?>"> <br>
